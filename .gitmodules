@@ -1,0 +1,132 @@
+[submodule "vim/pack/plugins/start/nerdtree"]
+	path = vim/pack/plugins/start/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/pack/plugins/start/supertab"]
+	path = vim/pack/plugins/start/supertab
+	url = git@github.com:ervandew/supertab.git
+[submodule "vim/pack/plugins/start/taglist"]
+	path = vim/pack/plugins/start/taglist
+	url = git@github.com:vim-scripts/taglist.vim.git
+[submodule "vim/pack/plugins/start/Conque-Shell"]
+	path = vim/pack/plugins/start/Conque-Shell
+	url = git@github.com:vim-scripts/Conque-Shell.git
+[submodule "vim/pack/plugins/start/DoxygenToolkit"]
+	path = vim/pack/plugins/start/DoxygenToolkit
+	url = git@github.com:vim-scripts/DoxygenToolkit.vim.git
+[submodule "vim/pack/plugins/start/vim-matchup"]
+	path = vim/pack/plugins/start/vim-matchup
+	url = git@github.com:andymass/vim-matchup.git
+[submodule "vim/pack/plugins/start/vim-operator-user"]
+	path = vim/pack/plugins/start/vim-operator-user
+	url = git@github.com:kana/vim-operator-user.git
+[submodule "vim/pack/plugins/start/vim-clang-format"]
+	path = vim/pack/plugins/start/vim-clang-format
+	url = git@github.com:rhysd/vim-clang-format.git
+[submodule "vim/pack/plugins/start/tabular"]
+	path = vim/pack/plugins/start/tabular
+	url = git@github.com:godlygeek/tabular.git
+[submodule "vim/pack/plugins/start/vim-airline"]
+	path = vim/pack/plugins/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule "vim/pack/plugins/start/LargeFile"]
+	path = vim/pack/plugins/start/LargeFile
+	url = git@github.com:vim-scripts/LargeFile.git
+[submodule "vim/pack/plugins/start/vim-easymotion"]
+	path = vim/pack/plugins/start/vim-easymotion
+	url = git@github.com:easymotion/vim-easymotion.git
+[submodule "vim/pack/plugins/start/nerdcommenter"]
+	path = vim/pack/plugins/start/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "vim/pack/plugins/start/SudoEdit"]
+	path = vim/pack/plugins/start/SudoEdit
+	url = git@github.com:chrisbra/SudoEdit.vim.git
+[submodule "vim/pack/plugins/start/calendar"]
+	path = vim/pack/plugins/start/calendar
+	url = git@github.com:itchyny/calendar.vim.git
+[submodule "vim/pack/plugins/start/cmdline-completion"]
+	path = vim/pack/plugins/start/cmdline-completion
+	url = git@github.com:vim-scripts/cmdline-completion.git
+[submodule "vim/pack/plugins/start/command-t"]
+	path = vim/pack/plugins/start/command-t
+	url = git@github.com:wincent/command-t.git
+[submodule "vim/pack/plugins/start/file-line"]
+	path = vim/pack/plugins/start/file-line
+	url = git@github.com:bogado/file-line.git
+[submodule "vim/pack/plugins/start/vim-fswitch"]
+	path = vim/pack/plugins/start/vim-fswitch
+	url = git@github.com:derekwyatt/vim-fswitch.git
+[submodule "vim/pack/plugins/start/vim-fugitive"]
+	path = vim/pack/plugins/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/pack/plugins/start/gitv"]
+	path = vim/pack/plugins/start/gitv
+	url = git@github.com:gregsexton/gitv.git
+[submodule "vim/pack/plugins/start/vim-inccomplete"]
+	path = vim/pack/plugins/start/vim-inccomplete
+	url = git@github.com:xaizek/vim-inccomplete.git
+[submodule "vim/pack/plugins/start/vim-instant-markdown"]
+	path = vim/pack/plugins/start/vim-instant-markdown
+	url = git@github.com:suan/vim-instant-markdown.git
+[submodule "vim/pack/plugins/start/vim-signature"]
+	path = vim/pack/plugins/start/vim-signature
+	url = git@github.com:kshenoy/vim-signature.git
+[submodule "vim/pack/plugins/start/vim-scmdiff"]
+	path = vim/pack/plugins/start/vim-scmdiff
+	url = git@github.com:ghewgill/vim-scmdiff.git
+[submodule "vim/pack/plugins/start/ultisnips"]
+	path = vim/pack/plugins/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule "vim/pack/plugins/start/vim-addon-mw-utils"]
+	path = vim/pack/plugins/start/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/pack/plugins/start/tlib_vim"]
+	path = vim/pack/plugins/start/tlib_vim
+	url = git@github.com:tomtom/tlib_vim.git
+[submodule "vim/pack/plugins/start/vim-snippets"]
+	path = vim/pack/plugins/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule "vim/pack/plugins/start/vim-snipmate"]
+	path = vim/pack/plugins/start/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+[submodule "vim/pack/plugins/start/vim-surround"]
+	path = vim/pack/plugins/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/pack/plugins/start/tabpagecolorscheme"]
+	path = vim/pack/plugins/start/tabpagecolorscheme
+	url = git@github.com:vim-scripts/tabpagecolorscheme.git
+[submodule "vim/pack/plugins/start/Tag-Signature-Balloons"]
+	path = vim/pack/plugins/start/Tag-Signature-Balloons
+	url = git@github.com:vim-scripts/Tag-Signature-Balloons.git
+[submodule "vim/pack/plugins/start/vim-trailing-whitespace"]
+	path = vim/pack/plugins/start/vim-trailing-whitespace
+	url = git@github.com:bronson/vim-trailing-whitespace.git
+[submodule "vim/pack/plugins/start/VimCalc"]
+	path = vim/pack/plugins/start/VimCalc
+	url = git@github.com:gregsexton/VimCalc.git
+[submodule "vim/pack/plugins/start/vimwiki"]
+	path = vim/pack/plugins/start/vimwiki
+	url = git@github.com:vimwiki/vimwiki.git
+[submodule "vim/pack/plugins/start/vim-misc"]
+	path = vim/pack/plugins/start/vim-misc
+	url = git@github.com:xolox/vim-misc.git
+[submodule "vim/pack/plugins/start/cscope"]
+	path = vim/pack/plugins/start/cscope
+	url = git@github.com:brookhong/cscope.vim.git
+[submodule "vim/pack/plugins/opt/vim-easytags"]
+	path = vim/pack/plugins/opt/vim-easytags
+	url = git@github.com:xolox/vim-easytags.git
+[submodule "vim/pack/plugins/start/tagbar"]
+	path = vim/pack/plugins/start/tagbar
+	url = git@github.com:majutsushi/tagbar.git
+[submodule "vim/pack/plugins/start/ctrlp"]
+	path = vim/pack/plugins/start/ctrlp
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "vim/pack/plugins/start/dash"]
+	path = vim/pack/plugins/start/dash
+	url = git@github.com:rizzatti/dash.vim.git
+[submodule "vim/pack/plugins/start/vim-ripgrep"]
+	path = vim/pack/plugins/start/vim-ripgrep
+	url = git@github.com:jremmen/vim-ripgrep.git
+[submodule "vim/pack/plugins/start/gundo"]
+	path = vim/pack/plugins/start/gundo
+	url = git@github.com:sjl/gundo.vim.git

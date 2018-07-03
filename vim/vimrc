@@ -1,0 +1,289 @@
+source ~/.vim/include/mappings.vim
+
+syntax on
+filetype plugin indent on
+set nocompatible
+
+set packpath+=~/.vim/pack
+" using // so we can modify two files with the same name at the same time
+" see https://vi.stackexchange.com/questions/16037/vim-swap-file-best-practices
+set backupdir=$HOME/.vim//backup//
+set directory^=$HOME/.vim//backup//
+let mapleader = ","
+
+" Allow project-specific .vimrc files
+" Only works if you start vim from the project root directory
+set exrc
+
+set background=dark
+set completeopt=longest,menuone
+set number
+
+set foldenable        " enable folding
+set foldlevelstart=10 " open folds by default
+set foldmethod=indent " fold based on indent level
+set history=1024
+set antialias
+set clipboard=unnamed
+set cm=blowfish2      " encryption
+set hidden
+
+set showmatch         " highlight matching lines
+set matchtime=2
+set incsearch         " search as new characters entered
+set hlsearch          " highlight searches
+
+set foldcolumn=0
+set ff=unix
+set enc=utf8
+set tabpagemax=10
+set cursorline
+set cursorcolumn
+" useful to set autoindent and smartindent for file types that Vim doesn't know about
+set autoindent
+set smartindent
+
+set nowrap
+set cindent
+set smartindent
+set expandtab
+set backspace=2
+set tabstop=4       " show existing tab with 4 spaces width
+set softtabstop=4
+set shiftwidth=4    " when indenting with '>', use 4 spaces width
+set showtabline=0
+
+set cpoptions-=C
+set shortmess+=I
+set noequalalways
+set nocp incsearch
+set nocp hlsearch
+set ignorecase
+set smartcase
+set autowrite
+set autoread
+set modeline
+set wildmenu
+set wildmode=longest,list
+set viminfo=""
+set highlight=sb
+set titlestring="Vim: %f%m"
+set title
+set cf
+set ruler
+set noerrorbells
+set visualbell
+set nocp
+set completeopt=longest,menuone
+set include="#include \\(<boost\\)\\@!"
+set undofile
+set undodir=~/.vim/.undo
+" Redraw only when we need to
+set lazyredraw
+
+" Strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+"commands
+command! W  :w
+command! Q  :q
+command! WQ :wq
+command! Wq :wq
+command! Wa :wa
+command! WA :wa
+command! QW :qw
+command! Qa :qa
+command! AW :aw
+
+let g:lines=70
+let g:columns=240
+let g:LargeFile=2
+let g:includes=''
+let g:load_doxygen_syntax = 1
+let g:refreshTime=1000
+let g:compilation=0
+let g:csWorking=999
+let g:csInterrupted=998
+let g:cs=g:csWorking
+let g:quickFixHigh=9
+let g:tlWindowPosition=1
+let g:whoami=system("whoami | xargs echo -n")
+let g:pwd=system("pwd | xargs echo -n")
+let g:vimHome='/home/'.g:whoami.'/.vim'
+let g:selectedMode='none'
+
+"alternative
+let g:alternateSearchPath = 'sfr:../Include:..:../Includes:../Source:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../../include:../../source,sfr:../../../include:../../../source'
+
+" NerdTree
+" open NerdTree automatically when vim starts up if no file is specified
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" close vim if only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeWinSize=40
+let g:NERDTreeInvalidBookmars = []
+let NERDTreeIgnore=['\~$', '\.o$'. '\.so$', '\.a$', '\.lof', '\.lot', '\.toc', '\.gcda', '\.gcno', '\.gch', '\.pyc']
+
+"supertab
+let g:SuperTabDefaultCompletionType="<C-N>"
+let g:SuperTabContextDefaultCompletionType="<C-X><C-U>"
+
+"taglist
+let Tlist_Auto_Update=1
+let Tlist_Use_Right_Window=1
+let g:Tlist_WinWidth=32
+let g:Tlist_Sort_Type="name"
+let g:Tlist_Compact_Format=1
+let g:Tlist_Enable_Fold_Column=0
+let g:Tlist_Show_One_File=1
+let g:Tlist_Auto_Highlight_Tag=1
+let g:Tlist_Display_Tag_Scope=1
+let g:Tlist_Highlight_Tag_On_BufEnter=1
+
+"conque
+let g:ConqueTerm_EscKey = '<C-c><C-c>'
+let g:ConqueTerm_Color = 1
+let g:ConqueTerm_TERM =  'vt100'
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_CWInsert = 1
+let g:ConqueTerm_CloseOnEnd = 1
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+" See https://vi.stackexchange.com/questions/1983/how-can-i-get-vim-to-stop-putting-comments-in-front-of-new-lines
+au FileType c,cpp setlocal comments-=:// comments+=f://
+au FileType c,cpp set mps+==:;
+
+au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchdst='cpp,cc,C,cxx,c'
+au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchlocs='.,../Source,../src,source,src,../source'
+au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchdst='h,hpp,hxx,hh'
+au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
+au BufEnter *.c,*.cpp,*.cc,*.cxx,*.h,*.hpp,*.hh,*.hxx set colorcolumn=80 | set expandtab | set cindent | setlocal spell spelllang=en_us
+
+" run clang-format over a visual block of C++ code using <Leader>cf
+autocmd FileType c,cpp nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" This relies on using vim-operator-user
+autocmd FileType c,cpp map <buffer><Leader>x <Plug>(operator-clang-format)
+" Run clang-format on write to buffer (by default using .clang-format file since no options
+" specified here)
+" autocmd FileType c,cpp ClangFormatAutoEnable
+
+" calendar
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+" ctags
+":let g:easytags_file = '$HOME/.vim/tags'
+"" Look for project specific ctags files rather than just the global one
+":set tags=./tags;
+":let g:easytags_dynamic_files = 1
+"" :let g:easytags_auto_highlight = 0
+":let g:easytags_include_members = 1
+":let g:easytags_resolve_links = 1
+":let g:easytags_events = ['BufWritePost']
+"let g:easytags_syntax_keyword = 'always'
+"set tags=./tags;/,tags;/ " always find my tags file whether you have to go up or down in the dir heirarchy
+
+" cscope -- to find callers of a function
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+" s: Find this C symbol
+nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+
+" tagbar
+nmap <leader>tt :TagbarToggle<CR>
+
+" vimwiki
+let g:vimwiki_dir_link = 'index'
+let g:vimwiki_use_calendar = 1
+" TODO: consider using mardown instead of html
+" TODO: consider using multiple wikis (such as personal.wiki, tech.wiki)
+" TODO: specify nested_syntaxes for cpp, sh, etc
+let g:vimwiki_list = [{
+  \ 'path': '~/vimwiki',
+  \ 'syntax': 'markdown',
+  \ 'template_path': '~/vimwiki/templates/',
+  \ 'template_default': 'default',
+  \ 'template_ext': '.html',
+  \ 'path_html': '~/vimwiki/site_html'}]
+let g:vimwiki_hl_cb_checked = 1 " highlight completed tasks
+let g:vimwiki_hl_headers = 1 " highlight headers with different colors
+:nmap <Leader>dn <Plug>VimwikiMakeDiaryNote
+au BufRead,BufNewFile *.wiki set filetype=vimwiki
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+
+" ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+
+" dash
+:nmap <silent> <leader>d <Plug>DashSearch
+let g:dash_activate = 0 " to save Ctrl+Tabbing from Dash to Vim so often
+
+" gundo
+" gundo tries to use python 2.4 even if vim has python3 support, so tell it to
+" use python3 explicitly
+if has('python3')
+    let g:gundo_prefer_python3 = 1
+endif
+nnoremap <F5> :GundoToggle<CR>
+
+au Bufread *.uml set ft=plantuml
+au Bufread *.plantuml set ft=plantuml
+
+" Auto format cucumber tables
+autocmd BufWritePost *.feature set ft=cucumber
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+

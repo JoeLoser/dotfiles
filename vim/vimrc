@@ -1,5 +1,3 @@
-source ~/.vim/include/mappings.vim
-
 syntax on
 filetype plugin indent on
 set nocompatible

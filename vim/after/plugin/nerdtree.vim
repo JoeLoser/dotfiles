@@ -8,3 +8,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize=40
 let g:NERDTreeInvalidBookmars = []
 let NERDTreeIgnore=['\~$', '\.o$'. '\.so$', '\.a$', '\.lof', '\.lot', '\.toc', '\.gcda', '\.gcno', '\.gch', '\.pyc']
+
+map bn :NERDTreeToggle<CR>
+" view current buffer in NerdTree
+map <leader>r :NERDTreeFind<cr>

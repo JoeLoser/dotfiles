@@ -1,9 +1,0 @@
-command! W  :w
-command! Q  :q
-command! WQ :wq
-command! Wq :wq
-command! Wa :wa
-command! WA :wa
-command! QW :qw
-command! Qa :qa
-command! AW :aw

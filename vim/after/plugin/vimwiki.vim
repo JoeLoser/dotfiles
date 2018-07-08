@@ -12,5 +12,9 @@ let g:vimwiki_list = [{
   \ 'path_html': '~/vimwiki/site_html'}]
 let g:vimwiki_hl_cb_checked = 1 " highlight completed tasks
 let g:vimwiki_hl_headers = 1 " highlight headers with different colors
-:nmap <Leader>dn <Plug>VimwikiMakeDiaryNote
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
+
+" vimwiki decided to use d for this keymap, but I use dd often to kill
+" lines...
+let VimwikiMakeDiaryNote='<Leader>mdn'
+:nmap <Leader>dn <Plug>VimwikiMakeDiaryNote

@@ -73,9 +73,6 @@
 [submodule "vim/pack/plugins/start/vim-scmdiff"]
 	path = vim/pack/plugins/start/vim-scmdiff
 	url = git@github.com:ghewgill/vim-scmdiff.git
-[submodule "vim/pack/plugins/start/ultisnips"]
-	path = vim/pack/plugins/start/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
 [submodule "vim/pack/plugins/start/vim-addon-mw-utils"]
 	path = vim/pack/plugins/start/vim-addon-mw-utils
 	url = git@github.com:MarcWeber/vim-addon-mw-utils.git

@@ -1,86 +1,111 @@
+" Startup Config {{{
 " Use Vim settings, rather than Vi settings
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-
-syntax on
-filetype plugin indent on
-
 set packpath+=~/.vim/pack
-" using // so we can modify two files with the same name at the same time
-" see https://vi.stackexchange.com/questions/16037/vim-swap-file-best-practices
-set backupdir=$HOME/.vim//backup//
-set directory^=$HOME/.vim//backup//
 let mapleader = ","
+" using viminfo file to save info when exiting Vim and starting up again
+" TODO: consider using session-files
+set viminfo=""
+set history=1024
+set cpoptions-=C
+set shortmess+=I
+set cf
+" }}}
 
+" Files {{{
+set autowrite
+set autoread
+set ff=unix
+set encoding=utf8
+set fileencoding=utf-8
+" }}}
+
+" Colors {{{
+" TODO: Pick a colorscheme probably and set it here
+set background=dark
+" guard it since syntax enable can overwrite settings set by a colorscheme
+" see https://stackoverflow.com/questions/33380451/is-there-a-difference-between-syntax-on-and-syntax-enable-in-vimscript
+if !exists("g:syntax_on")
+    syntax enable
+endif
+" }}}
+
+" Misc {{{
+set clipboard=unnamed
 " Allow project-specific .vimrc files
 " Only works if you start vim from the project root directory
 set exrc
-
-set background=dark
-set completeopt=longest,menuone
-set number
-
-set foldenable        " enable folding
-set foldlevelstart=10 " open folds by default
-set foldmethod=indent " fold based on indent level
-set history=1024
-set antialias
-set clipboard=unnamed
+set noerrorbells
+set visualbell
+set include="#include \\(<boost\\)\\@!"
 set cm=blowfish2      " encryption
-set hidden
+set modeline
+" }}}
 
-set showmatch         " highlight matching lines
+" Spaces & Tabs {{{
+set tabstop=4           " show existing tab with 4 spaces width
+set softtabstop=4       " number of spaces in tab when editing
+set expandtab           " turn tabs into spaces. So, a tab is like 4 spaces
+set backspace=2
+set shiftwidth=4    " when indenting with '>', use 4 spaces width
+set backspace=indent,eol,start
+" }}}
+
+" UI {{{
+set number
+" enable file type detection
+" load filetype-specific indent files
+" https://vi.stackexchange.com/questions/10124/what-is-the-difference-between-filetype-plugin-indent-on-and-filetype-indent
+filetype plugin indent on
+set wildmenu              " visual autocomplete for command menu
+set wildmode=longest,list
+set lazyredraw            " redraw only when we need to
+set completeopt=longest,menuone
+set showmatch             " highlight matching [{()}]
 set matchtime=2
-set incsearch         " search as new characters entered
-set hlsearch          " highlight searches
-
-set foldcolumn=0
-set ff=unix
-set enc=utf8
-set tabpagemax=10
+set smartindent
+set cindent
+set autoindent
 set cursorline
 set cursorcolumn
-" useful to set autoindent and smartindent for file types that Vim doesn't know about
-set autoindent
-set smartindent
-
+set tabpagemax=10
+set showtabline=0 " TODO: play around with setting to '2' (always)
 set nowrap
-set cindent
-set smartindent
-set expandtab
-set backspace=2
-set tabstop=4       " show existing tab with 4 spaces width
-set softtabstop=4
-set shiftwidth=4    " when indenting with '>', use 4 spaces width
-set showtabline=0
-
-set cpoptions-=C
-set shortmess+=I
+set hidden
 set noequalalways
+set highlight=sb
+set ruler
+set completeopt=longest,menuone
+set titlestring="Vim: %f%m"
+set title
+" }}}
+
+" Searching {{{
+set incsearch         " search as new characters entered
+set hlsearch          " highlight searches
 set nocp incsearch
 set nocp hlsearch
 set ignorecase
 set smartcase
-set autowrite
-set autoread
-set modeline
-set wildmenu
-set wildmode=longest,list
-set viminfo=""
-set highlight=sb
-set titlestring="Vim: %f%m"
-set title
-set cf
-set ruler
-set noerrorbells
-set visualbell
-set nocp
-set completeopt=longest,menuone
-set include="#include \\(<boost\\)\\@!"
+" }}}
+
+" Folding {{{
+set foldenable           " enable folding
+set foldlevelstart=10    " open most folds by default
+set foldmethod=marker
+set foldnestmax=10
+set foldcolumn=0
+" }}}
+
+" Backups & Undos {{{
+" using // so we can modify two files with the same name at the same time
+" see https://vi.stackexchange.com/questions/16037/vim-swap-file-best-practices
+set backupdir=$HOME/.vim//backup//
+set directory^=$HOME/.vim//backup//
 set undofile
 set undodir=~/.vim/.undo
-" Redraw only when we need to
-set lazyredraw
+" }}}
 
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -129,3 +154,7 @@ au Bufread *.plantuml set ft=plantuml
 
 " Auto format cucumber tables
 autocmd BufWritePost *.feature set ft=cucumber
+
+" Must be last line in vimrc as this is our modeline saying to apply this
+" setting only to this file.
+" vim:foldmethod=marker:foldlevel=0

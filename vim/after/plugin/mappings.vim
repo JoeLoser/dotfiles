@@ -6,11 +6,18 @@ nnoremap Y y$
 " whenever type %, jump to matching object AND visually select all text in between
 noremap % v%
 
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
 " Select entire buffer
 nnoremap vaa ggvGg_
 
 " Close files
 nnoremap <silent> <leader>qq :q<CR>
+
+" space open/closes folds since za opens/closes the fold around the current
+" block
+nnoremap <space> za
 
 " Insert mode
 " ------------

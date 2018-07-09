@@ -118,18 +118,6 @@ let g:load_doxygen_syntax = 1
 let g:whoami=system("whoami | xargs echo -n")
 let g:pwd=system("pwd | xargs echo -n")
 let g:vimHome='/home/'.g:whoami.'/.vim'
-
-" TODO: unused options/cruft
-let g:refreshTime=1000
-let g:compilation=0
-let g:csWorking=999
-let g:cs=g:csWorking
-let g:csInterrupted=998
-let g:quickFixHigh=9
-let g:tlWindowPosition=1
-let g:selectedMode='none'
-"alternative
-let g:alternateSearchPath = 'sfr:../Include:..:../Includes:../Source:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:../../include:../../source,sfr:../../../include:../../../source'
 " }}}
 
 " See https://vi.stackexchange.com/questions/1983/how-can-i-get-vim-to-stop-putting-comments-in-front-of-new-lines

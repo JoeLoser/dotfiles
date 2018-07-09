@@ -107,9 +107,6 @@ set undofile
 set undodir=~/.vim/.undo
 " }}}
 
-" Strip trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
 " Global options and variables {{{
 let g:lines=70
 let g:columns=240
@@ -120,30 +117,57 @@ let g:pwd=system("pwd | xargs echo -n")
 let g:vimHome='/home/'.g:whoami.'/.vim'
 " }}}
 
-" See https://vi.stackexchange.com/questions/1983/how-can-i-get-vim-to-stop-putting-comments-in-front-of-new-lines
-au FileType c,cpp setlocal comments-=:// comments+=f://
-au FileType c,cpp set mps+==:;
+" Autocommands {{{
+" TODO: consider namespacing the autocommand groups by declaring here and
+" defining elsewhere. This will help keep the vimrc minimal.
+" See https://vi.stackexchange.com/questions/9455/why-should-i-use-augroup
 
-au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchdst='cpp,cc,C,cxx,c'
-au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchlocs='.,../Source,../src,source,src,../source'
-au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchdst='h,hpp,hxx,hh'
-au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
-au BufEnter *.c,*.cpp,*.cc,*.cxx,*.h,*.hpp,*.hh,*.hxx set colorcolumn=80 | set expandtab | set cindent | setlocal spell spelllang=en_us
+" Strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
-" run clang-format over a visual block of C++ code using <Leader>cf
-autocmd FileType c,cpp nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
-" This relies on using vim-operator-user
-autocmd FileType c,cpp map <buffer><Leader>x <Plug>(operator-clang-format)
-" Run clang-format on write to buffer (by default using .clang-format file since no options
-" specified here)
-" autocmd FileType c,cpp ClangFormatAutoEnable
+augroup cpp_comments
+    autocmd!
+    " See https://vi.stackexchange.com/questions/1983/how-can-i-get-vim-to-stop-putting-comments-in-front-of-new-lines
+    au FileType c,cpp setlocal comments-=:// comments+=f://
+    au FileType c,cpp set mps+==:;
+augroup END
 
-au Bufread *.uml set ft=plantuml
-au Bufread *.plantuml set ft=plantuml
+augroup cpp_setup
+    autocmd!
+    au BufEnter *.c,*.cpp,*.cc,*.cxx,*.h,*.hpp,*.hh,*.hxx set colorcolumn=80 | set expandtab | set cindent | setlocal spell spelllang=en_us
+augroup END
 
-" Auto format cucumber tables
-autocmd BufWritePost *.feature set ft=cucumber
+augroup cpp_dev
+    autocmd!
+    au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchdst='cpp,cc,C,cxx,c'
+    au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchlocs='.,../Source,../src,source,src,../source'
+    au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchdst='h,hpp,hxx,hh'
+    au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
+augroup END
+
+augroup cpp_clang_format
+    autocmd!
+    " run clang-format over a visual block of C++ code using <Leader>cf
+    autocmd FileType c,cpp nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+    autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
+    " This relies on using vim-operator-user
+    autocmd FileType c,cpp map <buffer><Leader>x <Plug>(operator-clang-format)
+    " Run clang-format on write to buffer (by default using .clang-format file since no options
+    " specified here)
+    autocmd FileType c,cpp ClangFormatAutoEnable
+augroup END
+
+augroup filetypes
+    autocmd!
+    au Bufread *.uml set ft=plantuml
+    au Bufread *.plantuml set ft=plantuml
+augroup END
+
+augroup cucumber_format
+    " Auto format cucumber tables
+    autocmd BufWritePost *.feature set ft=cucumber
+augroup END
+" }}}
 
 " Must be last line in vimrc as this is our modeline saying to apply this
 " setting only to this file.

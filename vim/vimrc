@@ -122,6 +122,8 @@ let g:vimHome='/home/'.g:whoami.'/.vim'
 " defining elsewhere. This will help keep the vimrc minimal.
 " See https://vi.stackexchange.com/questions/9455/why-should-i-use-augroup
 
+if has("autocmd")
+
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -157,16 +159,11 @@ augroup cpp_clang_format
     autocmd FileType c,cpp ClangFormatAutoEnable
 augroup END
 
-augroup filetypes
-    autocmd!
-    au Bufread *.uml set ft=plantuml
-    au Bufread *.plantuml set ft=plantuml
-augroup END
-
 augroup cucumber_format
     " Auto format cucumber tables
     autocmd BufWritePost *.feature set ft=cucumber
 augroup END
+endif " has("autocmd")
 " }}}
 
 " Must be last line in vimrc as this is our modeline saying to apply this

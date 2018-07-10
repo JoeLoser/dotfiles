@@ -60,7 +60,6 @@ set number
 filetype plugin indent on
 set wildmenu              " visual autocomplete for command menu
 set wildmode=longest,list
-set lazyredraw            " redraw only when we need to
 set completeopt=longest,menuone
 set showmatch             " highlight matching [{()}]
 set matchtime=2
@@ -72,13 +71,18 @@ set cursorcolumn
 set tabpagemax=10
 set showtabline=0 " TODO: play around with setting to '2' (always)
 set nowrap
-set hidden
 set noequalalways
 set highlight=sb
 set ruler
 set completeopt=longest,menuone
 set titlestring="Vim: %f%m"
 set title
+" }}}
+
+" Performance {{{
+set lazyredraw            " redraw only when we need to
+set ttyfast               " send more characters at a given time
+set hidden                " can put buffer to background without writing to disk
 " }}}
 
 " Searching {{{

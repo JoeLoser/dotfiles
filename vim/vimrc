@@ -55,6 +55,10 @@ set backspace=indent,eol,start
 
 " UI {{{
 set number
+" use relative line number by default
+if exists('+relativenumber')
+    set relativenumber
+endif
 " enable file type detection
 " load filetype-specific indent files
 " https://vi.stackexchange.com/questions/10124/what-is-the-difference-between-filetype-plugin-indent-on-and-filetype-indent

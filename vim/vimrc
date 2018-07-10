@@ -82,6 +82,7 @@ set ruler
 set completeopt=longest,menuone
 set titlestring="Vim: %f%m"
 set title
+set pastetoggle=<leader>p
 " }}}
 
 " Performance {{{

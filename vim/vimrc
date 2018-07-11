@@ -11,6 +11,10 @@ set history=1024
 set cpoptions-=C
 set shortmess+=I
 set cf
+
+if has('python3')
+    silent! python3 1
+endif
 " }}}
 
 " Files {{{

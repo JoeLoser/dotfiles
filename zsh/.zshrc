@@ -15,13 +15,10 @@ ENABLE_CORRECTION="false"
 HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# For now, just use the default oh-my-zsh custom folder
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# For now, just use the default oh-my-zsh custom folder # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   colored-man-pages
   colorize
@@ -47,9 +44,6 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
@@ -63,7 +57,11 @@ alias cl='clear'
 # Avoid confirmation of deleting regular files since oh-my-zsh defaults rm to 'rm -i'
 setopt rm_star_silent
 
-# Tmux aliases
+# Application aliases {{{
+alias git=hub
+# }}}
+
+# Tmux aliases {{{
 alias tmux-attach-or-create-main-session='tmux new-session -A -s main'
 alias tls='tmux list-sessions'
 alias ts='tmux new-session -s'
@@ -73,6 +71,7 @@ alias tad='tmux attach -d -t'
 alias tksv='tmux kill-server'
 alias tkill='tmux kill-session -t'
 alias tsw='tmux switch -t'
+# }}}
 
 # Oh-My-Zsh defaults rm to rm-i but I can't be bothered to be asked "Are you sure" you want to delete a file
 unalias rm
@@ -95,5 +94,4 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/key-bindings.zsh
   source /usr/local/opt/fzf/shell/completion.zsh
 fi
-
 

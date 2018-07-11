@@ -136,3 +136,6 @@
 [submodule "vim/pack/plugins/start/vim-autoclose"]
 	path = vim/pack/plugins/start/vim-autoclose
 	url = git@github.com:Townk/vim-autoclose.git
+[submodule "vim/pack/plugins/start/fzf"]
+	path = vim/pack/plugins/start/fzf
+	url = git@github.com:junegunn/fzf.vim.git

@@ -133,3 +133,6 @@
 [submodule "vim/pack/plugins/start/vim-gitgutter"]
 	path = vim/pack/plugins/start/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
+[submodule "vim/pack/plugins/start/vim-autoclose"]
+	path = vim/pack/plugins/start/vim-autoclose
+	url = git@github.com:Townk/vim-autoclose.git

@@ -46,9 +46,6 @@
 [submodule "vim/pack/plugins/start/cmdline-completion"]
 	path = vim/pack/plugins/start/cmdline-completion
 	url = git@github.com:vim-scripts/cmdline-completion.git
-[submodule "vim/pack/plugins/start/command-t"]
-	path = vim/pack/plugins/start/command-t
-	url = git@github.com:wincent/command-t.git
 [submodule "vim/pack/plugins/start/file-line"]
 	path = vim/pack/plugins/start/file-line
 	url = git@github.com:bogado/file-line.git
@@ -130,3 +127,6 @@
 [submodule "vim/pack/plugins/start/vim-autotag"]
 	path = vim/pack/plugins/start/vim-autotag
 	url = git@github.com:craigemery/vim-autotag.git
+[submodule "vim/pack/plugins/start/python-mode"]
+	path = vim/pack/plugins/start/python-mode
+	url = git@github.com:python-mode/python-mode.git

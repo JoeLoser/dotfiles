@@ -19,6 +19,10 @@ nnoremap <silent> <leader>qq :q<CR>
 " block
 nnoremap <space> za
 
+" Re-open previously opened file
+" Basically cd - for current window
+nnoremap <Leader><Leader> :e#<CR>
+
 " Insert mode
 " ------------
 inoremap jk <ESC>

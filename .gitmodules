@@ -130,3 +130,6 @@
 [submodule "vim/pack/plugins/start/python-mode"]
 	path = vim/pack/plugins/start/python-mode
 	url = git@github.com:python-mode/python-mode.git
+[submodule "vim/pack/plugins/start/vim-gitgutter"]
+	path = vim/pack/plugins/start/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git

@@ -74,6 +74,9 @@ alias tksv='tmux kill-server'
 alias tkill='tmux kill-session -t'
 alias tsw='tmux switch -t'
 
+# Oh-My-Zsh defaults rm to rm-i but I can't be bothered to be asked "Are you sure" you want to delete a file
+unalias rm
+
 # In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
 # variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
 # at startup of a shell will either start gpg-agent or set up the GPG_AGENT_INFO variable

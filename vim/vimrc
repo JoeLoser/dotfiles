@@ -3,6 +3,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set packpath+=~/.vim/pack
+set rtp+=/usr/local/Cellar/fzf/*
 let mapleader = ","
 " using viminfo file to save info when exiting Vim and starting up again
 " TODO: consider using session-files

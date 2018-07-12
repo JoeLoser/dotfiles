@@ -142,3 +142,6 @@
 [submodule "vim/pack/plugins/start/vim-rhubarb"]
 	path = vim/pack/plugins/start/vim-rhubarb
 	url = git@github.com:tpope/vim-rhubarb.git
+[submodule "vim/pack/plugins/start/cpp-enhanced-highlight"]
+	path = vim/pack/plugins/start/cpp-enhanced-highlight
+	url = git@github.com:octol/vim-cpp-enhanced-highlight.git

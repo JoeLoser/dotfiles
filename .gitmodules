@@ -145,3 +145,12 @@
 [submodule "vim/pack/plugins/start/cpp-enhanced-highlight"]
 	path = vim/pack/plugins/start/cpp-enhanced-highlight
 	url = git@github.com:octol/vim-cpp-enhanced-highlight.git
+[submodule "vim/pack/plugins/start/far"]
+	path = vim/pack/plugins/start/far
+	url = git@github.com:brooth/far.vim.git
+[submodule "vim/pack/plugins/start/BufOnly"]
+	path = vim/pack/plugins/start/BufOnly
+	url = git@github.com:vim-scripts/BufOnly.vim.git
+[submodule "vim/pack/plugins/start/vim-rooter"]
+	path = vim/pack/plugins/start/vim-rooter
+	url = git@github.com:airblade/vim-rooter.git

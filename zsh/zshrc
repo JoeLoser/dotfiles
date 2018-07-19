@@ -1,0 +1,18 @@
+ZSH_HOME=~/.zsh
+
+source $ZSH_HOME/oh_my_zsh.zsh
+source $ZSH_HOME/env_vars.zsh
+source $ZSH_HOME/options.zsh
+source $ZSH_HOME/aliases.zsh
+source $ZSH_HOME/gpg.zsh
+
+# fzf via Homebrew
+if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+source $ZSH_HOME/fzf.zsh
+source $ZSH_HOME/fzf_functions.zsh
+
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"

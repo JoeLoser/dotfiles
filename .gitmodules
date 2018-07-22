@@ -157,3 +157,6 @@
 [submodule "vim/pack/plugins/start/ale"]
 	path = vim/pack/plugins/start/ale
 	url = git@github.com:w0rp/ale.git
+[submodule "vim/pack/plugins/start/YouCompleteMe"]
+	path = vim/pack/plugins/start/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git

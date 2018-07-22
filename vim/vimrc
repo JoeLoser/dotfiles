@@ -106,6 +106,9 @@ set nocp incsearch
 set nocp hlsearch
 set ignorecase
 set smartcase
+" See
+" https://stackoverflow.com/questions/5017500/vim-difficulty-setting-up-ctags-source-in-subdirectories-dont-see-tags-file-i
+set tags=./tags,./TAGS,tags;~,TAGS;~
 " }}}
 
 " Folding {{{
@@ -152,13 +155,9 @@ augroup cpp_comments
     au FileType c,cpp set mps+==:;
 augroup END
 
-augroup cpp_setup
-    autocmd!
-    au BufEnter *.c,*.cpp,*.cc,*.cxx,*.h,*.hpp,*.hh,*.hxx set colorcolumn=80 | set expandtab | set cindent | setlocal spell spelllang=en_us
-augroup END
-
 augroup cpp_dev
     autocmd!
+    au BufEnter *.c,*.cpp,*.cc,*.cxx,*.h,*.hpp,*.hh,*.hxx set colorcolumn=80 | set expandtab | set cindent
     au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchdst='cpp,cc,C,cxx,c'
     au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchlocs='.,../Source,../src,source,src,../source'
     au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchdst='h,hpp,hxx,hh'

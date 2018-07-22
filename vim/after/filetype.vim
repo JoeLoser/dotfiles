@@ -15,3 +15,9 @@ augroup filetype_detect
     au Bufread *.uml set ft=plantuml
     au Bufread *.plantuml set ft=plantuml
 augroup END
+
+augroup git
+    autocmd!
+    " Commit messages should not be longer than 72 characters wide
+    autocmd FileType gitcommit textwidth=72
+augroup END

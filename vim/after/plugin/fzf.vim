@@ -15,11 +15,21 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 " Git grep using ripgrep as the backend
+" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --color: Search color options
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-  \ -g "*.{md,cpp,c,go,conf}"
-  \ -g "!{.git,vendor}/*" '
+  \ -glob "!{.git,vendor}/*" '
 
+" Use :F to run Git grep with ripgrep as backend
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 " Show preview of files

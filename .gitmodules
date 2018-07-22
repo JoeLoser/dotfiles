@@ -124,9 +124,6 @@
 [submodule "vim/pack/plugins/start/gundo"]
 	path = vim/pack/plugins/start/gundo
 	url = git@github.com:sjl/gundo.vim.git
-[submodule "vim/pack/plugins/start/vim-autotag"]
-	path = vim/pack/plugins/start/vim-autotag
-	url = git@github.com:craigemery/vim-autotag.git
 [submodule "vim/pack/plugins/start/python-mode"]
 	path = vim/pack/plugins/start/python-mode
 	url = git@github.com:python-mode/python-mode.git

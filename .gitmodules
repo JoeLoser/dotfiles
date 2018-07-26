@@ -160,3 +160,6 @@
 [submodule "vim/pack/plugins/start/YouCompleteMe"]
 	path = vim/pack/plugins/start/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "vim/pack/plugins/start/vim-lastplace"]
+	path = vim/pack/plugins/start/vim-lastplace
+	url = git@github.com:farmergreg/vim-lastplace.git

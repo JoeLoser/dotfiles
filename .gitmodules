@@ -163,3 +163,6 @@
 [submodule "vim/pack/plugins/start/vim-lastplace"]
 	path = vim/pack/plugins/start/vim-lastplace
 	url = git@github.com:farmergreg/vim-lastplace.git
+[submodule "vim/pack/plugins/start/quick-scope"]
+	path = vim/pack/plugins/start/quick-scope
+	url = git@github.com:unblevable/quick-scope.git

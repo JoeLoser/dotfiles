@@ -25,12 +25,8 @@ nnoremap <Leader><Leader> :e#<CR>
 
 " Insert mode
 " ------------
-inoremap jk <ESC>
 inoremap jj <ESC>
-inoremap kj <ESC>
-inoremap JK <ESC>
 inoremap JJ <ESC>
-inoremap KJ <ESC>
 
 " Visual mode
 " ------------

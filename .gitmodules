@@ -58,9 +58,6 @@
 [submodule "vim/pack/plugins/start/vim-inccomplete"]
 	path = vim/pack/plugins/start/vim-inccomplete
 	url = git@github.com:xaizek/vim-inccomplete.git
-[submodule "vim/pack/plugins/start/vim-instant-markdown"]
-	path = vim/pack/plugins/start/vim-instant-markdown
-	url = git@github.com:suan/vim-instant-markdown.git
 [submodule "vim/pack/plugins/start/vim-signature"]
 	path = vim/pack/plugins/start/vim-signature
 	url = git@github.com:kshenoy/vim-signature.git

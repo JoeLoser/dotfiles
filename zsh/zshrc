@@ -13,6 +13,5 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
 fi
 
 source $ZSH_HOME/fzf.zsh
-source $ZSH_HOME/fzf_functions.zsh
 
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"

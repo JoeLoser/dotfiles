@@ -179,7 +179,7 @@ augroup cpp_clang_format
     autocmd FileType c,cpp map <buffer><Leader>x <Plug>(operator-clang-format)
     " Run clang-format on write to buffer (by default using .clang-format file since no options
     " specified here)
-    autocmd FileType c,cpp ClangFormatAutoEnable
+    "autocmd FileType c,cpp ClangFormatAutoEnable
 augroup END
 
 augroup cucumber_format

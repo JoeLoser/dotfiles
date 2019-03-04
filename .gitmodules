@@ -88,9 +88,6 @@
 [submodule "vim/pack/plugins/start/vim-trailing-whitespace"]
 	path = vim/pack/plugins/start/vim-trailing-whitespace
 	url = git@github.com:bronson/vim-trailing-whitespace.git
-[submodule "vim/pack/plugins/start/VimCalc"]
-	path = vim/pack/plugins/start/VimCalc
-	url = git@github.com:gregsexton/VimCalc.git
 [submodule "vim/pack/plugins/start/vimwiki"]
 	path = vim/pack/plugins/start/vimwiki
 	url = git@github.com:vimwiki/vimwiki.git

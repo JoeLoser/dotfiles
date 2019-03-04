@@ -160,3 +160,6 @@
 [submodule "vim/pack/plugins/start/quick-scope"]
 	path = vim/pack/plugins/start/quick-scope
 	url = git@github.com:unblevable/quick-scope.git
+[submodule "vim/pack/plugins/start/vim-startify"]
+	path = vim/pack/plugins/start/vim-startify
+	url = https://github.com/mhinz/vim-startify.git

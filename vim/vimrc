@@ -164,6 +164,12 @@ augroup cpp_dev
     au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
 augroup END
 
+augroup thrift_dev
+    autocmd!
+	au BufRead,BufNewFile *.thrift set filetype=thrift
+    au! Syntax thrift source ~/.vim/after/syntax/thrift.vim
+augroup END
+
 augroup cpp_clang_format
     autocmd!
     " run clang-format over a visual block of C++ code using <Leader>cf

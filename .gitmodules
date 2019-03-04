@@ -7,9 +7,6 @@
 [submodule "vim/pack/plugins/start/taglist"]
 	path = vim/pack/plugins/start/taglist
 	url = git@github.com:vim-scripts/taglist.vim.git
-[submodule "vim/pack/plugins/start/Conque-Shell"]
-	path = vim/pack/plugins/start/Conque-Shell
-	url = git@github.com:vim-scripts/Conque-Shell.git
 [submodule "vim/pack/plugins/start/DoxygenToolkit"]
 	path = vim/pack/plugins/start/DoxygenToolkit
 	url = git@github.com:vim-scripts/DoxygenToolkit.vim.git

@@ -15,7 +15,7 @@ alias tsw='tmux switch -t'
 # }}}
 
 # Nifty aliases {{{
-alias ls='ls --color=auto'
+#alias ls='ls --color=auto'
 alias cl='clear'
 alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
 # }}}

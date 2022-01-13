@@ -1,3 +1,4 @@
+" Include guard to avoid this getting sourced multiple times
 if exists("did_load_filetypes")
     finish
 endif
@@ -14,10 +15,14 @@ augroup filetype_detect
     autocmd!
     au Bufread *.uml set ft=plantuml
     au Bufread *.plantuml set ft=plantuml
+    au BufWritePost *.feature set ft=cucumber
 augroup END
 
 augroup git
-    autocmd!
-    " Commit messages should not be longer than 72 characters wide
-    autocmd FileType gitcommit textwidth=72
+    " Commit messages should not be longer than 80 characters wide
+    autocmd! FileType gitcommit textwidth=80
+augroup END
+
+augroup format_features
+    autocmd! FileType cucumber map <Tab> :Tabularize /\|<CR>
 augroup END

@@ -1,6 +1,8 @@
 nmap <Leader>f :GitFiles<CR>
+"nmap ,f :GitFiles<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>b :Buffers<CR>
+"nmap ,b :Buffers<CR>
 
 " Jump to the existing window if possible
 let g:fzf_buffers_jump = 1

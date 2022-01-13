@@ -1,15 +1,11 @@
-if v:version < 800
-    echoerr 'Not using vim with async, so use default ALE options'
-    finish
-endif
-
-set updatetime=1000
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_save = 1
-
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertEnter * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
-let g:airline#extensions#ale#enabled = 1
-let g:ale_open_list = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\  "cmake": ["cmakelint"],
+\  "cpp": ["clangd", "clangtidy"],
+\  "python": ["flake8", "pylint"],
+\}
+let g:ale_fixers = {
+\  "cmake": ["trim_whitespace", "remove_trailing_lines", "cmakeformat"],
+\  "cpp": ["clangtidy", "trim_whitespace", "remove_trailing_lines", "clang-format"],
+\  "python": ["trim_whitespace", "remove_trailing_lines", "isort", "black"],
+\}

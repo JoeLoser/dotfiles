@@ -1,2 +1,2 @@
 " Toggle auto formatting:
-nmap <Leader>C :ClangFormatAutoToggle<CR>
+"nmap <Leader>C :ClangFormatAutoToggle<CR>

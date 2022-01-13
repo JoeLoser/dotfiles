@@ -3,20 +3,54 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set packpath+=~/.vim/pack
-set rtp+=/usr/local/Cellar/fzf/*
-let mapleader = ","
+set rtp+=~/.fzf
+
+" https://stackoverflow.com/questions/446269/can-i-use-space-as-mapleader-in-vim
+" nnoremap <SPACE> <Nop>
+"let mapleader = ","
 " using viminfo file to save info when exiting Vim and starting up again
-" TODO: consider using session-files
 set viminfo=""
 set history=1024
 set cpoptions-=C
 set shortmess+=I
 set cf
+set mouse=a
+
+set updatetime=100
+
+let g:quickFixHigh=9
 
 if has('python3')
     silent! python3 1
 endif
+
+" Configure localvimrc
+let g:localvimrc_persistent = 1
 " }}}
+
+" Configure ALE
+let g:ale_change_sign_column_color = 1
+let g:ale_cursor_detail = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fix_on_save = 1
+let g:ale_cpp_clangtidy_checks = ['-misc-definitions-in-headers']
+map <Leader>cf :ALEFix<CR>
+
+
+" Configure YouCompleteMe
+"let g:ycm_use_clangd = 1
+"let g:ycm_clangd_binary_path = "/usr/lib/llvm12/12.0.0/bin/clangd"
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" lvimrc
+let g:localvimrc_sandbox = 0
+
+set splitright
+set splitbelow
+
+set smarttab
+au FileType python setlocal shiftwidth=4
 
 " Files {{{
 set autowrite
@@ -24,11 +58,14 @@ set autoread
 set ff=unix
 set encoding=utf8
 set fileencoding=utf-8
+filetype plugin on
 " }}}
 
 " Colors {{{
 " TODO: Pick a colorscheme probably and set it here
+colorscheme slate
 set background=dark
+hi! Visual cterm=reverse ctermbg=NONE
 " guard it since syntax enable can overwrite settings set by a colorscheme
 " see https://stackoverflow.com/questions/33380451/is-there-a-difference-between-syntax-on-and-syntax-enable-in-vimscript
 if !exists("g:syntax_on")
@@ -50,11 +87,11 @@ set modeline
 " }}}
 
 " Spaces & Tabs {{{
-set tabstop=4           " show existing tab with 4 spaces width
-set softtabstop=4       " number of spaces in tab when editing
-set expandtab           " turn tabs into spaces. So, a tab is like 4 spaces
+set tabstop=2           " show existing tab with 2 spaces width
+set softtabstop=2       " number of spaces in tab when editing
+set expandtab           " turn tabs into spaces. So, a tab is like 2 spaces
 set backspace=2
-set shiftwidth=4    " when indenting with '>', use 4 spaces width
+set shiftwidth=2    " when indenting with '>', use 2 spaces width
 set backspace=indent,eol,start
 " }}}
 
@@ -62,25 +99,26 @@ set backspace=indent,eol,start
 set number
 " use relative line number by default
 if exists('+relativenumber')
-    set relativenumber
+    "set relativenumber
 endif
 " enable file type detection
 " load filetype-specific indent files
 " https://vi.stackexchange.com/questions/10124/what-is-the-difference-between-filetype-plugin-indent-on-and-filetype-indent
 filetype plugin indent on
+set wildmode=longest,list,full
 set wildmenu              " visual autocomplete for command menu
-set wildmode=longest,list
-set completeopt=longest,menuone
+"set completeopt=longest,menuone
 set showmatch             " highlight matching [{()}]
+set matchpairs+=<:>
 set matchtime=2
 set smartindent
 set cindent
 set autoindent
-set cursorline
+set cursorline " NOTE: may give cursor scroll lag
 set cursorcolumn
 set tabpagemax=10
 set showtabline=0 " TODO: play around with setting to '2' (always)
-set nowrap
+"set nowrap
 set noequalalways
 set highlight=sb
 set ruler
@@ -106,8 +144,6 @@ set nocp incsearch
 set nocp hlsearch
 set ignorecase
 set smartcase
-" See
-" https://stackoverflow.com/questions/5017500/vim-difficulty-setting-up-ctags-source-in-subdirectories-dont-see-tags-file-i
 set tags=./tags,./TAGS,tags;~,TAGS;~
 " }}}
 
@@ -122,6 +158,7 @@ set foldcolumn=0
 " Backups & Undos {{{
 " using // so we can modify two files with the same name at the same time
 " see https://vi.stackexchange.com/questions/16037/vim-swap-file-best-practices
+set noswapfile
 set backupdir=$HOME/.vim//backup//
 set directory^=$HOME/.vim//backup//
 set undofile
@@ -155,37 +192,54 @@ augroup cpp_comments
     au FileType c,cpp set mps+==:;
 augroup END
 
-augroup cpp_dev
+augroup cpp_setup
     autocmd!
     au BufEnter *.c,*.cpp,*.cc,*.cxx,*.h,*.hpp,*.hh,*.hxx set colorcolumn=80 | set expandtab | set cindent
-    au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchdst='cpp,cc,C,cxx,c'
-    au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchlocs='.,../Source,../src,source,src,../source'
-    au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchdst='h,hpp,hxx,hh'
-    au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
 augroup END
 
-augroup thrift_dev
-    autocmd!
-	au BufRead,BufNewFile *.thrift set filetype=thrift
-    au! Syntax thrift source ~/.vim/after/syntax/thrift.vim
-augroup END
+"augroup cpp_dev
+    "autocmd!
+    "au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchdst='cpp,cc,C,cxx,c'
+    "au BufEnter *.h,*.hpp,*.hh,*.hxx let b:fswitchlocs='.,../Source,../src,source,src,../source'
+    "au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchdst='h,hpp,hxx,hh'
+    "au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
+"augroup END
 
 augroup cpp_clang_format
     autocmd!
-    " run clang-format over a visual block of C++ code using <Leader>cf
-    autocmd FileType c,cpp nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-    autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
-    " This relies on using vim-operator-user
-    autocmd FileType c,cpp map <buffer><Leader>x <Plug>(operator-clang-format)
-    " Run clang-format on write to buffer (by default using .clang-format file since no options
-    " specified here)
+    "" run clang-rormat over a visual block of C++ code using <Leader>cf
+    "autocmd FileType c,cpp noremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+    "autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
+    "" This relies on using vim-operator-user
+    "autocmd FileType c,cpp map <buffer><Leader>x <Plug>(operator-clang-format)
+    "" Run clang-format on write to buffer (by default using .clang-format file since no options
+    "" specified here)
     "autocmd FileType c,cpp ClangFormatAutoEnable
 augroup END
 
+function FormatBuffer()
+ if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+	 let cursor_pos = getpos('.')
+	 :%!clang-format
+	 call setpos('.', cursor_pos)
+ endif
+endfunction
+autocmd BufWritePre *.h,*.hpp,*.c,*.cpp :call FormatBuffer()
+
 augroup cucumber_format
     " Auto format cucumber tables
+    autocmd!
     autocmd BufWritePost *.feature set ft=cucumber
+    " TODO: use map instead of nnoremap?
+    autocmd FileType cucumber nnoremap <Tab> :Tabularize /\|<CR>
+    autocmd FileType markdown nnoremap <Tab> :Tabularize /\|<CR>
 augroup END
+
+"augroup cmake_dev
+    "autocmd!
+    "au BufWritePost *.cmake,CMakeLists.txt silent !cmake-format --config-file ~/projects/ts/.gitlab-ci/cmake-format.cfg -i <afile>
+    "autocmd BufWritePost *.cmake,CMakeLists.txt silent :e!
+"augroup END
 endif " has("autocmd")
 " }}}
 

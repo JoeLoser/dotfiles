@@ -5,6 +5,7 @@ source $ZSH_HOME/env_vars.zsh
 source $ZSH_HOME/options.zsh
 source $ZSH_HOME/aliases.zsh
 source $ZSH_HOME/gpg.zsh
+source $ZSH_HOME/ls_replacement.zsh
 
 # fzf via Homebrew
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
@@ -15,3 +16,4 @@ fi
 source $ZSH_HOME/fzf.zsh
 
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+LS_COLORS=${LS_COLORS/ow=[[:digit:];]#:/ow=1;34:}

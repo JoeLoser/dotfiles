@@ -205,8 +205,8 @@ augroup END
     "au BufEnter *.c,*.cpp,*.cc,*.cxx let b:fswitchlocs='.,../Include,../inc,include,inc,../include'
 "augroup END
 
-augroup cpp_clang_format
-    autocmd!
+"augroup cpp_clang_format
+    "autocmd!
     "" run clang-rormat over a visual block of C++ code using <Leader>cf
     "autocmd FileType c,cpp noremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
     "autocmd FileType c,cpp vnoremap <buffer><Leader>cf :ClangFormat<CR>
@@ -215,16 +215,16 @@ augroup cpp_clang_format
     "" Run clang-format on write to buffer (by default using .clang-format file since no options
     "" specified here)
     "autocmd FileType c,cpp ClangFormatAutoEnable
-augroup END
+"augroup END
 
-function FormatBuffer()
- if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
-	 let cursor_pos = getpos('.')
-	 :%!clang-format
-	 call setpos('.', cursor_pos)
- endif
-endfunction
-autocmd BufWritePre *.h,*.hpp,*.c,*.cpp :call FormatBuffer()
+"function FormatBuffer()
+ "if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+	 "let cursor_pos = getpos('.')
+	 ":%!clang-format
+	 "call setpos('.', cursor_pos)
+ "endif
+"endfunction
+"autocmd BufWritePre *.h,*.hpp,*.c,*.cpp :call FormatBuffer()
 
 augroup cucumber_format
     " Auto format cucumber tables

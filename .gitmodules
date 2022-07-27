@@ -61,3 +61,6 @@
 [submodule "zsh/themes/powerlevel10k"]
 	path = zsh/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "vim/pack/plugins/start/onedark"]
+	path = vim/pack/plugins/start/onedark
+	url = https://github.com/joshdick/onedark.vim.git

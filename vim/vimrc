@@ -164,8 +164,6 @@ set foldcolumn=0
 " using // so we can modify two files with the same name at the same time
 " see https://vi.stackexchange.com/questions/16037/vim-swap-file-best-practices
 set noswapfile
-set backupdir=$HOME/.vim//backup//
-set directory^=$HOME/.vim//backup//
 set undofile
 set undodir=~/.vim/.undo
 " }}}

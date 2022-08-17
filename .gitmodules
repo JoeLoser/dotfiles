@@ -64,3 +64,15 @@
 [submodule "vim/pack/plugins/start/onedark"]
 	path = vim/pack/plugins/start/onedark
 	url = https://github.com/joshdick/onedark.vim.git
+[submodule "neovim/pack/neoformat"]
+	path = nvim/pack/neoformat
+	url = https://github.com/sbdchd/neoformat.git
+[submodule "neovim/pack/coc"]
+	path = nvim/pack/coc
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule "neovim/pack/gitsigns"]
+	path = nvim/pack/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim.git
+[submodule "neovim/pack/nvim-treesitter"]
+	path = nvim/pack/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git

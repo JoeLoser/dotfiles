@@ -30,35 +30,34 @@ return require('packer').startup(function(use)
   }
 
   -- LSP
-  use {
-    'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
-    config = function()
-      require('plugins.configs.lsp')
-    end
-  }
-  use {
-    "williamboman/mason.nvim",
-    config = function()
-      require('mason').setup()
-    end
-  }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require('mason-lspconfig').setup()
-    end
-  }
+  --use {
+    --'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+    --config = function()
+      --require('plugins.configs.lsp')
+    --end
+  --}
+  --use {
+    --"williamboman/mason.nvim",
+    --config = function()
+      --require('mason').setup()
+    --end
+  --}
+  --use {
+    --"williamboman/mason-lspconfig.nvim",
+    --config = function()
+      --require('mason-lspconfig').setup()
+    --end
+  --}
   use 'SmiteshP/nvim-navic'
   use 'ray-x/lsp_signature.nvim' -- Show function signature when you type
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'mfussenegger/nvim-lint' -- Linter
 
-  --use {
-    --'neoclide/coc.nvim',
-    --branch = 'release'
-  --}
-
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release'
+  }
 
   use {
     'preservim/nerdcommenter',
@@ -78,17 +77,6 @@ return require('packer').startup(function(use)
       require('telescope').setup()
     end
   }
-
-	use {
-		'phaazon/hop.nvim',
-		branch = 'v2', -- optional but strongly recommended
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-		end
-	}
-
-
 
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
@@ -124,14 +112,16 @@ return require('packer').startup(function(use)
      end
 	}
 
-  use {
-    'akinsho/bufferline.nvim',
-     tag = "v2.*",
-     requires = 'kyazdani42/nvim-web-devicons',
-     config = function()
-       require('bufferline').setup()
-     end
-  }
+  use 'preservim/tagbar'
+
+  --use {
+    --'akinsho/bufferline.nvim',
+     --tag = "v2.*",
+     --requires = 'kyazdani42/nvim-web-devicons',
+     --config = function()
+       --require('bufferline').setup()
+     --end
+  --}
 
   use {
     'folke/which-key.nvim',

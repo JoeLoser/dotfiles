@@ -62,12 +62,11 @@ filetype plugin on
 " }}}
 
 " Colors {{{
-" TODO: Pick a colorscheme probably and set it here
-"colorscheme slate
+colorscheme slate
 syntax on
-colorscheme onedark
+"colorscheme onedark
 let g:onedark_terminal_italics=1
-let g:airline_theme='onedark'
+"let g:airline_theme='onedark'
 
 "set background=dark
 hi! Visual cterm=reverse ctermbg=NONE

@@ -86,6 +86,9 @@
   st = status                       # status
   stat = status                     # status
 
+  # submodules
+  su = submodule update --init
+
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
 
@@ -132,10 +135,5 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	signingkey = 26E33E04991A536732D8874F1CDBEBC050EA230D
-[commit]
-	gpgsign = true
-[gpg]
-	program = gpg
-[init]
-	templatedir = ~/git_template
+	name = Joe Loser
+	email = joe@modular.com

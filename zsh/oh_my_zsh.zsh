@@ -1,11 +1,8 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.dotfiles/zsh/oh-my-zsh
-
 # Path to vim
 export MYVIMRC='~/.vim/.vimrc'
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Enable command auto-correction.
 ENABLE_CORRECTION="false"
@@ -21,22 +18,16 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
   colored-man-pages
-  #colorize
+  colorize
   common-aliases
   git
   git-extras
-  gnu-utils
-  h
+  #gnu-utils # BREAKS colors
   last-working-dir
-  osx
   tmux
   vi-mode
-  web-search
+  #web-search
   Z
-  zsh-open-pr
-  zsh_reload
-  zsh-autosuggestions
-  zsh-syntax-highlighting # Must be last
 )
 
 source $ZSH/oh-my-zsh.sh

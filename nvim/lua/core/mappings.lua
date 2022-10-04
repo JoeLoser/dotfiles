@@ -11,13 +11,16 @@ vim.opt.pastetoggle = '<F2>'
 
 -- Plugin shortcuts
 
-map('n', 'bn', ':NvimTreeToggle<CR>')            -- open/close
-map('n', 'rn', ':NvimTreeToggle<CR>')            -- open/close
+--map('n', '<leader>r', ':NvimTreeToggle<CR>')            -- open/close
+map('n', 'bn', ':NvimTreeFindFileToggle<CR>')            -- open/close
+map('n', '<leader>bn', ':NvimTreeFindFileToggle<CR>')            -- open/close
+map('n', '<leader>rn', ':NvimTreeFindFileToggle<CR>')            -- open/close
 
-map('n', '<leader>f', ':Telescope find_files<CR>')
+map('n', '<leader>gf', ':Telescope find_files hidden=true<CR>')
+map('n', '<leader>f', ':Telescope find_files hidden=true<CR>')
 --map('n', '<leader>ff', ':Telescope find_files<CR>')
-map('n', '<leader>fg', ':Telescope live_grep<CR>')
+map('n', '<leader>lg', ':Telescope live_grep<CR>')
 map('n', '<leader>b', ':Telescope buffers<CR>')
-map('n', '<leader>fb', ':Telescope buffers<CR>')
+--map('n', '<leader>fb', ':Telescope buffers<CR>')
 
 map('n', '<leader>t', ':TagbarToggle<CR>')

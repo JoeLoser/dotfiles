@@ -1,7 +1,7 @@
-# set your user tokens as environment variables, such as ~/.secrets
-# See the README for examples.
 [include]
-  path = .gitconfig.user
+  path = personal.gitconfig
+[includeIf "gitdir/i:~/dev/modular/"]
+  path = ~/dev/modular/work.gitconfig
 [color]
   ui = true
 [color "branch"]
@@ -30,35 +30,28 @@
   # commit
   c = commit -m                     # commit with message
   ca = commit -am                   # commit all with message
-  ci = commit                       # commit
   amend = commit --amend            # ammend your last commit
   ammend = commit --amend           # ammend your last commit
+  cano = commit --amend --no-edit
 
   # checkout
   co = checkout                     # checkout
-  nb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
 
   # cherry-pick
   cp = cherry-pick -x               # grab a change from a branch
 
   # diff
   d = diff                          # diff unstaged changes
-  dc = diff --cached                # diff staged changes
   last = diff HEAD^                 # diff last committed change
 
   # log
   l = log --graph --date=short
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  logs = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   simple = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
-
-  # pull
-  pl = pull                         # pull
-
-  # push
-  ps = push                         # push
 
   # rebase
   rc = rebase --continue            # continue rebase
@@ -134,6 +127,3 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[user]
-	name = Joe Loser
-	email = joe@modular.com

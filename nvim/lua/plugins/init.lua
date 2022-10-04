@@ -78,7 +78,14 @@ return require('packer').startup(function(use)
                                          -- the default case_mode is "smart_case"
       }
     },
+    pickers = {
+      find_files = {
+        hidden = true
+      },
+    },
     config = function()
+      -- TODO: use file_ignore_patterns to ignore .git and third-party code.
+      -- For now, am just using a local .rgignore file.
       require('telescope').setup()
     end
   }

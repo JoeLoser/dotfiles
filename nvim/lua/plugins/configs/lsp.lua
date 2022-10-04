@@ -120,7 +120,7 @@ require('lspconfig').pylsp.setup {
         pylsp = {
             plugins = {
                 black = { enabled = true, line_length = 80 },
-                flake8 = { enabled = true, indentSize = 4 },
+                flake8 = { enabled = true, indentSize = 4, maxLineLength = 80 },
                 pyls_isort = { enabled = true },
                 pyflakes = { enabled = true },
                 pycodestyle = { enabled = false },

@@ -96,7 +96,14 @@ require('lspconfig').clangd.setup {
         "clangd",
         "--background-index",
         "--header-insertion=iwyu",
-        "--query-driver=/usr/local/Cellar/llvm/14.0.6_1/bin/clang++"
+        "--clang-tidy",
+        "--limit-results=0",
+        "--completion-style",
+        "detailed",
+        "--all-scopes-completion",
+        "--pch-storage=memory",
+        "-j=8",
+        "--ranking-model=decision_forest",
     }
 }
 

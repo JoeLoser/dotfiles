@@ -145,6 +145,8 @@ return require('packer').startup(function(use)
     end
   }
 
+  use 'instant-markdown/vim-instant-markdown'
+
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()

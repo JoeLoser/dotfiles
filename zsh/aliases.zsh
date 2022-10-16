@@ -15,3 +15,5 @@ alias cl='clear'
 alias pypath='python -c "import sys; print sys.path" | tr "," "\n" | grep -v "egg"'
 # }}}
 
+
+alias python=/opt/homebrew/bin/python3

@@ -93,6 +93,8 @@ return require('packer').startup(function(use)
   -- -- load_extension, somewhere after setup function:
   require('telescope').load_extension('fzf')
 
+  --use 'preservim/nerdtree'
+
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
 
@@ -126,6 +128,8 @@ return require('packer').startup(function(use)
       --require('gitsigns').setup()
      --end
   --}
+
+  use 'tpope/vim-fugitive'
 
   use 'preservim/tagbar'
 

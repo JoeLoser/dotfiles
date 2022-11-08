@@ -14,7 +14,7 @@ vim.opt.pastetoggle = '<F2>'
 --map('n', '<leader>r', ':NvimTreeToggle<CR>')            -- open/close
 map('n', 'bn', ':NvimTreeFindFileToggle<CR>')            -- open/close
 map('n', '<leader>bn', ':NvimTreeFindFileToggle<CR>')            -- open/close
-map('n', '<leader>rn', ':NvimTreeFindFileToggle<CR>')            -- open/close
+--map('n', '<leader>rn', ':NvimTreeFindFileToggle<CR>')            -- open/close
 
 map('n', '<leader>gf', ':Telescope find_files hidden=true<CR>')
 map('n', '<leader>f', ':Telescope find_files hidden=true<CR>')

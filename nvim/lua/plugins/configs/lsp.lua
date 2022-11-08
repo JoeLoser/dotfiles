@@ -8,8 +8,6 @@ vim.cmd([[
 set shortmess+=c
 ]])
 
-local opts = { noremap=true, silent=true }
-
 local on_attach = function(client, bufnr)
     vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
 

@@ -49,40 +49,48 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>q', '<cmd> lua vim.diagnostic.setloclist()<CR>', opts)
 end
 
--- Setup Completion
--- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
 cmp.setup({
-    -- Enable LSP snippets
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
-    mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        -- Add tab support
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<CR>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<Tab>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        })
-    },
-
-    -- Installed sources
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'path' },
-        { name = 'buffer', keyword_length = 4 },
-        { name = 'vsnip' },
-    },
+   snippet = {
+      expand = function(args)
+         vim.fn["vsnip#anonymous"](args.body)
+      end,
+   },
+   mapping = {
+      ["<C-p>"] = cmp.mapping.select_prev_item(),
+      ["<C-n>"] = cmp.mapping.select_next_item(),
+      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.close(),
+      ["<CR>"] = cmp.mapping.confirm({
+         behavior = cmp.ConfirmBehavior.Replace,
+         select = true,
+      }),
+      ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+   },
+   formatting = {
+      format = function(_, vim_item)
+         vim.cmd("packadd lspkind-nvim")
+         vim_item.kind = require("lspkind").presets.codicons[vim_item.kind]
+         .. "  "
+         .. vim_item.kind
+         return vim_item
+      end,
+   },
+   sources = {
+      { name = "nvim_lsp" },
+      { name = "vsnip" },
+      { name = "path" },
+   },
 })
+
+vim.cmd([[
+	augroup NvimCmp
+	au!
+	au FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
+	augroup END
+]])
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())

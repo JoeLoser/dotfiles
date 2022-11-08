@@ -50,8 +50,13 @@ return require('packer').startup(function(use)
   }
   use 'SmiteshP/nvim-navic'
   use 'ray-x/lsp_signature.nvim' -- Show function signature when you type
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'onsails/lspkind.nvim'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-vsnip'
+
   use 'mfussenegger/nvim-lint' -- Linter
 
   use {

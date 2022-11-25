@@ -24,6 +24,7 @@ plugins=(
   git-extras
   #gnu-utils # BREAKS colors
   last-working-dir
+  macos
   tmux
   vi-mode
   #web-search

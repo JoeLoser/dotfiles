@@ -12,7 +12,9 @@ local on_attach = function(client, bufnr)
     vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
 
     local navic = require('nvim-navic')
-    navic.attach(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+    end
 
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -27,6 +29,11 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     local opts = { noremap = true, silent = true }
+
+    if client.server_capabilities.documentRangeFormattingProvider then
+      local lsp_format_modifications = require "lsp-format-modifications"
+      lsp_format_modifications.attach(client, bufnr, { format_on_save = true })
+    end
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)

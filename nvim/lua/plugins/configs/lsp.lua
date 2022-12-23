@@ -108,7 +108,6 @@ require('lspconfig').clangd.setup {
     cmd = {
         "clangd",
         "--background-index",
-        "--header-insertion=iwyu",
         "--clang-tidy",
         "--limit-results=0",
         "--completion-style",
@@ -117,6 +116,7 @@ require('lspconfig').clangd.setup {
         "--pch-storage=memory",
         "-j=8",
         "--ranking-model=decision_forest",
+        "--header-insertion=never",
     }
 }
 

@@ -120,6 +120,15 @@ require('lspconfig').clangd.setup {
     }
 }
 
+-- require('lspconfig').cmake.setup {
+--   on_attach = on_attach,
+--   initializationOptions = {
+--     {
+--       buildDirectory = ".derived/build"
+--     }
+--   }
+-- }
+
 require('lspconfig').pylsp.setup {
     on_attach = on_attach,
     flags = {

@@ -184,9 +184,9 @@ require('lint').linters_by_ft = {
     sh = { 'shellcheck' },
 }
 
-vim.api.nvim_create_autocmd({'BufWritePre'}, {
-    pattern = {"*.cpp", "*.hpp", "*.h", "*.c", "*.py", "*.cmake", "*.CMakeLists.txt"},
-    callback = function()
-        vim.lsp.buf.format()
-    end
-})
+-- vim.api.nvim_create_autocmd({'BufWritePre'}, {
+--     pattern = {"*.cpp", "*.hpp", "*.h", "*.c", "*.py", "*.cmake", "*.CMakeLists.txt"},
+--     callback = function()
+--         vim.lsp.buf.format()
+--     end
+-- })

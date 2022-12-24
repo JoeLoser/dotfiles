@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
   use { "lewis6991/impatient.nvim", config = [[require('impatient')]] }
   use 'wbthomason/packer.nvim'
   use 'navarasu/onedark.nvim'
+  -- TODO: revisit these in future
   use 'nvim-lua/plenary.nvim'
   use 'vim-airline/vim-airline'
 
@@ -65,13 +66,13 @@ return require('packer').startup(function(use)
   --)
   --end
   --}
+
   -- Treesitter
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    config = function()
-      require('plugins.configs.treesitter')
-    end
+    "nvim-treesitter/nvim-treesitter",
+    event = "BufEnter",
+    run = ":TSUpdate",
+    config = [[require('plugins.configs.treesitter')]],
   }
 
   -- LSP

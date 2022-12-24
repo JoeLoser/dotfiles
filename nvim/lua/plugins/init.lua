@@ -83,15 +83,15 @@ return require('packer').startup(function(use)
 
   use {
     "williamboman/mason.nvim",
-    -- config = function()
-    --   require('mason').setup()
-    -- end
+    config = function()
+      require('mason').setup()
+    end
   }
   use {
     "williamboman/mason-lspconfig.nvim",
-    -- config = function()
-    --   require('mason-lspconfig').setup()
-    -- end
+    config = function()
+      require('mason-lspconfig').setup()
+    end
   }
   use 'SmiteshP/nvim-navic'
   use 'ray-x/lsp_signature.nvim' -- Show function signature when you type

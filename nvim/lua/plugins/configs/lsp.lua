@@ -166,11 +166,11 @@ require('lspconfig').pyright.setup {
     }
 }
 
-require('lspconfig').sumneko_lua.setup {
-    cmd = { 'lua-language-server' },
-    capabilities = capabilities,
-    on_attach = on_attach
-}
+-- require('lspconfig').sumneko_lua.setup {
+--     cmd = { 'lua-language-server' },
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
 
 require('lspconfig').bashls.setup {
     cmd = { 'bash-language-server', 'start' },

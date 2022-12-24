@@ -210,17 +210,12 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-  --use {
-    --'lewis6991/gitsigns.nvim',
-     --tag = 'release',
-     --config = function()
-      --require('gitsigns').setup()
-     --end
-  --}
-
-  use { "tpope/vim-fugitive", event = "User InGitRepo" }
+  use { "tpope/vim-fugitive" }
   -- Better git log display
   use { "rbong/vim-flog", requires = "tpope/vim-fugitive", cmd = { "Flog" } }
+
+  -- Show git change (change, delete, add) signs in vim sign column
+  use { "lewis6991/gitsigns.nvim", config = [[require('plugins.configs.gitsigns')]] }
 
   use 'preservim/tagbar'
 

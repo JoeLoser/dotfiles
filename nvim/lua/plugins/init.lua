@@ -59,10 +59,11 @@ return require('packer').startup(function(use)
 
   use 'mfussenegger/nvim-lint' -- Linter
 
+  -- TODO: adjust mappings to be like <leader>cc with nerdcommenter?
   use {
-    'preservim/nerdcommenter',
+    'numToStr/Comment.nvim',
     config = function()
-      require('plugins.configs.nerdcommenter')
+      require('Comment').setup()
     end
   }
 

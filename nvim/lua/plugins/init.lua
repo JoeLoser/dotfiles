@@ -181,6 +181,8 @@ return require('packer').startup(function(use)
   -- Show undo history visually
   use { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } }
 
+  use { "max397574/better-escape.nvim", event = { "InsertEnter" } }
+
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',

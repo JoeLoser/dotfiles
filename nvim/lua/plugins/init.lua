@@ -179,6 +179,12 @@ return require('packer').startup(function(use)
 
   use 'instant-markdown/vim-instant-markdown'
 
+  use {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  }
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()

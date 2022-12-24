@@ -219,6 +219,8 @@ return require('packer').startup(function(use)
   --}
 
   use { "tpope/vim-fugitive", event = "User InGitRepo" }
+  -- Better git log display
+  use { "rbong/vim-flog", requires = "tpope/vim-fugitive", cmd = { "Flog" } }
 
   use 'preservim/tagbar'
 

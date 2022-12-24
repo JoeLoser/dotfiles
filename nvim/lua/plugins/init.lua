@@ -185,7 +185,21 @@ return require('packer').startup(function(use)
       require('leap').add_default_mappings()
     end
   }
+
   use 'joechrisellis/lsp-format-modifications.nvim'
+  -- use {
+  --   'mfussenegger/nvim-dap',
+  --   config = function()
+  --     require('plugins.configs.dap')
+  --   end
+  -- }
+  -- use {
+  --   'theHamsta/nvim-dap-virtual-text',
+  --   config = function()
+  --     require("nvim-dap-virtual-text").setup()
+  --   end
+  -- }
+  -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()

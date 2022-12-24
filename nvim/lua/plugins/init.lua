@@ -175,6 +175,9 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- Show undo history visually
+  use { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } }
+
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',

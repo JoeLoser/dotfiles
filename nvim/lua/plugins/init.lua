@@ -151,10 +151,18 @@ return require('packer').startup(function(use)
   -- -- load_extension, somewhere after setup function:
   require('telescope').load_extension('fzf')
 
+  -- search emoji and other symbols
+  use { "nvim-telescope/telescope-symbols.nvim", after = "telescope.nvim" }
+
   --use 'preservim/nerdtree'
 
   -- Icons
-  use 'kyazdani42/nvim-web-devicons'
+  use { "kyazdani42/nvim-web-devicons", event = "VimEnter" }
+
+  use { "akinsho/bufferline.nvim", event = "VimEnter",
+      cond = firenvim_not_active,
+      config = [[require('plugins.configs.bufferline')]]
+  }
 
   -- File explorer
   use {

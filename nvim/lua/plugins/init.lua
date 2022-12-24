@@ -75,34 +75,40 @@ return require('packer').startup(function(use)
   }
 
   -- LSP
-  use {
-    'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
-    config = function()
-      require('plugins.configs.lsp')
-    end
-  }
+  use { "onsails/lspkind-nvim", event = "VimEnter" }
+
+  -- auto-completion engine
+  use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('plugins.configs.nvim-cmp')]] }
+
   use {
     "williamboman/mason.nvim",
-    config = function()
-      require('mason').setup()
-    end
+    -- config = function()
+    --   require('mason').setup()
+    -- end
   }
   use {
     "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require('mason-lspconfig').setup()
-    end
+    -- config = function()
+    --   require('mason-lspconfig').setup()
+    -- end
   }
   use 'SmiteshP/nvim-navic'
   use 'ray-x/lsp_signature.nvim' -- Show function signature when you type
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'onsails/lspkind.nvim'
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-vsnip'
+
+  use 'hrsh7th/vim-vsnip' -- TODO: do we need this still?
+
+  -- nvim-cmp completion sources
+  use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
+  use { "hrsh7th/cmp-path", after = "nvim-cmp" }
+  use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
+  if vim.g.is_mac then
+    use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
+  end
 
   use 'mfussenegger/nvim-lint' -- Linter
+
+  -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
+  use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('plugins.configs.lsp')]] }
 
   -- TODO: adjust mappings to be like <leader>cc with nerdcommenter?
   use {

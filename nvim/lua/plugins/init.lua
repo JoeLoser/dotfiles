@@ -175,6 +175,9 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- better UI for some nvim actions
+  use {'stevearc/dressing.nvim'}
+
   -- Show undo history visually
   use { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } }
 

@@ -185,6 +185,7 @@ return require('packer').startup(function(use)
       require('leap').add_default_mappings()
     end
   }
+  use 'joechrisellis/lsp-format-modifications.nvim'
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()

@@ -164,6 +164,17 @@ return require('packer').startup(function(use)
       config = [[require('plugins.configs.bufferline')]]
   }
 
+   -- notification plugin
+  use {
+    "rcarriga/nvim-notify",
+    event = "BufEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("config.nvim-notify")
+      end, 2000)
+    end,
+  }
+
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',

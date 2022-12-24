@@ -27,6 +27,7 @@ opt.autoread = true
 opt.ff = 'unix'
 opt.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
+opt.swapfile = false
 -- Filetype plugin on?
 
 opt.errorbells = true

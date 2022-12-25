@@ -78,14 +78,13 @@ return require('packer').startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
   use { "hrsh7th/cmp-path", after = "nvim-cmp" }
   use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
-  if vim.g.is_mac then
-    use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
-  end
+  use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
 
   use 'mfussenegger/nvim-lint' -- Linter
 
   -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
   use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('plugins.configs.lsp')]] }
+  use 'joechrisellis/lsp-format-modifications.nvim'
 
   use {
     'numToStr/Comment.nvim',
@@ -198,7 +197,9 @@ return require('packer').startup(function(use)
     config = [[require("plugins.configs.leap")]]
   }
 
-  use 'joechrisellis/lsp-format-modifications.nvim'
+  -- The missing auto-completion for cmdline!
+  use { "gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]] }
+
   -- use {
   --   'mfussenegger/nvim-dap',
   --   config = function()
@@ -212,6 +213,7 @@ return require('packer').startup(function(use)
   --   end
   -- }
   -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()

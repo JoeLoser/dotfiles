@@ -220,9 +220,7 @@ return require('packer').startup(function(use)
 
   use {
     'folke/which-key.nvim',
-    config = function()
-      require('which-key').setup()
-    end
+    config = [[require("plugins.configs.which-key")]]
   }
 
   use 'instant-markdown/vim-instant-markdown'
@@ -230,9 +228,7 @@ return require('packer').startup(function(use)
 
   use {
     'ggandor/leap.nvim',
-    config = function()
-      require('leap').add_default_mappings()
-    end
+    config = [[require("plugins.configs.leap")]]
   }
 
   use 'joechrisellis/lsp-format-modifications.nvim'

@@ -226,6 +226,7 @@ return require('packer').startup(function(use)
   }
 
   use 'instant-markdown/vim-instant-markdown'
+  use { "rhysd/vim-grammarous", ft = { "markdown" } }
 
   use {
     'ggandor/leap.nvim',

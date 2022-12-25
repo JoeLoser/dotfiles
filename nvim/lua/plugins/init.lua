@@ -186,7 +186,11 @@ return require('packer').startup(function(use)
 
   use {
     'folke/which-key.nvim',
-    config = [[require("plugins.configs.which-key")]]
+    config = function()
+        vim.defer_fn(function()
+          require("plugins.configs.which-key")
+        end, 2000)
+    end,
   }
 
   use 'instant-markdown/vim-instant-markdown'

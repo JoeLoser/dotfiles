@@ -111,16 +111,14 @@ return require('packer').startup(function(use)
   -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
   use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('plugins.configs.lsp')]] }
 
-  -- TODO: adjust mappings to be like <leader>cc with nerdcommenter?
   use {
     'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
+    config = [[require('plugins.configs.comment')]]
   }
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
+  -- TODO: move to config
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = {

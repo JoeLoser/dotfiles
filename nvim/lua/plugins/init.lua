@@ -139,15 +139,8 @@ return require('packer').startup(function(use)
         hidden = true
       },
     },
-    config = function()
-      -- TODO: use file_ignore_patterns to ignore .git and third-party code.
-      -- For now, am just using a local .rgignore file.
-      require('telescope').setup()
-    end
+    config = [[require("plugins.configs.telescope")]]
   }
-  -- To get fzf loaded and working with telescope, you need to call
-  -- -- load_extension, somewhere after setup function:
-  require('telescope').load_extension('fzf')
 
   -- search emoji and other symbols
   use { "nvim-telescope/telescope-symbols.nvim", after = "telescope.nvim" }

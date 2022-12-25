@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   -- TODO: revisit these in future
   use 'nvim-lua/plenary.nvim'
-  use 'vim-airline/vim-airline'
 
   -- Treesitter
   use {

@@ -44,29 +44,6 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'vim-airline/vim-airline'
 
-  --use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'
-  --config = function()
-  --require('bufferline').setup({
-  --options = {
-  --mode = 'buffers',
-  --offsets = {
-  --{filetype = 'NvimTree'}
-  --},
-  --}
-  --highlights = {
-  --buffer_selected = {
-  --italic = false
-  --},
-  --indicator_selected = {
-  --fg = {attribute = 'fg', highlight = 'Function'},
-  --italic = false
-  --}
-  --}
-  --}
-  --)
-  --end
-  --}
-
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -208,15 +185,6 @@ return require('packer').startup(function(use)
   use { "rhysd/committia.vim", setup = [[vim.cmd('packadd committia.vim')]] }
 
   use 'preservim/tagbar'
-
-  --use {
-    --'akinsho/bufferline.nvim',
-     --tag = "v2.*",
-     --requires = 'kyazdani42/nvim-web-devicons',
-     --config = function()
-       --require('bufferline').setup()
-     --end
-  --}
 
   use {
     'folke/which-key.nvim',

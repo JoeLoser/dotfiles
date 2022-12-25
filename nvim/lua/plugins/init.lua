@@ -204,6 +204,9 @@ return require('packer').startup(function(use)
   -- Show git change (change, delete, add) signs in vim sign column
   use { "lewis6991/gitsigns.nvim", config = [[require('plugins.configs.gitsigns')]] }
 
+  -- Better git commit experience
+  use { "rhysd/committia.vim", setup = [[vim.cmd('packadd committia.vim')]] }
+
   use 'preservim/tagbar'
 
   --use {

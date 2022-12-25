@@ -204,6 +204,9 @@ return require('packer').startup(function(use)
   -- The missing auto-completion for cmdline!
   use { "gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]] }
 
+  -- show and trim trailing whitespaces
+  use { "jdhao/whitespace.nvim", event = "VimEnter" }
+
   -- use {
   --   'mfussenegger/nvim-dap',
   --   config = function()

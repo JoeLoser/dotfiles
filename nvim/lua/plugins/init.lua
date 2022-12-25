@@ -145,8 +145,6 @@ return require('packer').startup(function(use)
   -- search emoji and other symbols
   use { "nvim-telescope/telescope-symbols.nvim", after = "telescope.nvim" }
 
-  --use 'preservim/nerdtree'
-
   -- Icons
   use { "kyazdani42/nvim-web-devicons", event = "VimEnter" }
 
@@ -185,9 +183,7 @@ return require('packer').startup(function(use)
       'kyazdani42/nvim-web-devicons',
     },
     tag = 'nightly', -- optional, updated every week. (see issue #1193)
-    config = function()
-      require('nvim-tree').setup()
-    end
+    config = [[require("plugins.configs.nvim-tree")]]
   }
 
   use {

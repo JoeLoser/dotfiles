@@ -14,5 +14,5 @@ fi
 
 source $ZSH_HOME/fzf.zsh
 
-[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+# [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 #LS_COLORS=${LS_COLORS/ow=[[:digit:];]#:/ow=1;34:}

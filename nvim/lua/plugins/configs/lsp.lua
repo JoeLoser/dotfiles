@@ -138,7 +138,7 @@ require('lspconfig').pylsp.setup {
 
     -- For further configuration: https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
     settings = {
-        formatCommand = {"black"},
+        -- formatCommand = {"black"},
         pylsp = {
             plugins = {
                 black = { enabled = true, line_length = 80 },

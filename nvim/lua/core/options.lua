@@ -8,11 +8,13 @@
 -- Other configs to look into
 -- https://github.com/glepnir/cosynvim/blob/main/lua/core/options.lua
 
+--require "nvchad.options"
+
 local opt = vim.opt
 
 opt.history = 1024
-opt.shortmess:append "sI"
-opt.mouse = 'a'
+opt.shortmess:append("sI")
+opt.mouse = "a"
 
 opt.updatetime = 100
 
@@ -24,9 +26,9 @@ opt.smarttab = true
 -- Files
 opt.autowrite = true
 opt.autoread = true
-opt.ff = 'unix'
-opt.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
+opt.ff = "unix"
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
 opt.swapfile = false
 -- Filetype plugin on?
 
@@ -38,15 +40,15 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.expandtab = true
 opt.shiftwidth = 2
-opt.backspace = 'indent,eol,start'
+opt.backspace = "indent,eol,start"
 
 opt.textwidth = 80
-opt.colorcolumn= '80'
+opt.colorcolumn = "80"
 
 opt.number = true
 
-opt.diffopt = 'filler,iwhite,internal,algorithm:patience'
-opt.completeopt = 'menu,menuone,noselect'
+opt.diffopt = "filler,iwhite,internal,algorithm:patience"
+opt.completeopt = "menu,menuone,noselect"
 
 opt.autoindent = true
 opt.showtabline = 2
@@ -65,19 +67,19 @@ opt.ignorecase = true
 
 vim.opt.termguicolors = true
 
-if vim.loop.os_uname().sysname == 'Darwin' then
-  vim.g.clipboard = {
-    name = 'macOS-clipboard',
-    copy = {
-      ['+'] = 'pbcopy',
-      ['*'] = 'pbcopy',
-    },
-    paste = {
-      ['+'] = 'pbpaste',
-      ['*'] = 'pbpaste',
-    },
-    cache_enabled = 0,
-  }
-  vim.g.python_host_prog = '/usr/bin/python'
-  vim.g.python3_host_prog = '/usr/local/bin/python3'
+if vim.loop.os_uname().sysname == "Darwin" then
+	vim.g.clipboard = {
+		name = "macOS-clipboard",
+		copy = {
+			["+"] = "pbcopy",
+			["*"] = "pbcopy",
+		},
+		paste = {
+			["+"] = "pbpaste",
+			["*"] = "pbpaste",
+		},
+		cache_enabled = 0,
+	}
+	vim.g.python_host_prog = "/usr/bin/python"
+	vim.g.python3_host_prog = "/usr/local/bin/python3"
 end

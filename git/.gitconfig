@@ -107,7 +107,7 @@
   showUntrackedFiles = all
 [core]
   autocrlf = false
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore
 [advice]
   statusHints = false

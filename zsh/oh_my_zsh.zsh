@@ -30,5 +30,3 @@ plugins=(
   #web-search
   Z
 )
-
-source $ZSH/oh-my-zsh.sh

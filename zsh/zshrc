@@ -2,7 +2,6 @@ ZSH_HOME=~/.zsh
 
 source $ZSH_HOME/oh_my_zsh.zsh
 source $ZSH_HOME/env_vars.zsh
-source $ZSH_HOME/options.zsh
 source $ZSH_HOME/aliases.zsh
 source $ZSH_HOME/ls_replacement.zsh
 
@@ -16,3 +15,8 @@ source $ZSH_HOME/fzf.zsh
 
 # [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 #LS_COLORS=${LS_COLORS/ow=[[:digit:];]#:/ow=1;34:}
+# export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+export PATH=~/.npm-global/bin:$PATH
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

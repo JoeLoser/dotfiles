@@ -1,7 +1,7 @@
-[include]
-  path = personal.gitconfig
-[includeIf "gitdir/i:~/dev/modular/"]
-  path = ~/dev/modular/work.gitconfig
+; [include]
+;   path = personal.gitconfig
+; [includeIf "gitdir/i:~/dev/modular/"]
+;   path = ~/dev/modular/work.gitconfig
 [color]
   ui = true
 [color "branch"]
@@ -108,7 +108,7 @@
 [core]
   autocrlf = false
   editor = nvim
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
 [advice]
   statusHints = false
 [diff]
@@ -130,3 +130,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	name = Joe Loser
+	email = joeloser@fastmail.com
